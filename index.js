@@ -21,12 +21,6 @@ const questions = [
 
   {
     type: `input`,
-    name: `tableofContents`,
-    message: `Table of Contents for your project `
-  },
-
-  {
-    type: `input`,
     name: `installation`,
     message: `Installation of your project `
   },
@@ -63,21 +57,6 @@ const questions = [
   }
 
 ];
-
-
-// inquirer.prompt(questions)
-//   .then((answers) => {
-//     // Use user feedback for... whatever!!
-//   })
-//   .catch((error) => {
-//     if (error.isTtyError) {
-//       // Prompt couldn't be rendered in the current environment
-//     } else {
-//       // Something else went wrong
-//     }
-//   });
-
-
 
 
 // function to write README file
