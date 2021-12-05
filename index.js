@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-var axios =require('axios');
+// var axios =require('axios');
+const fs = require("fs");
 
 
 
@@ -8,88 +9,97 @@ var axios =require('axios');
 const questions = [
   {
     type: `input`,
-    name: `Project Title`,
+    name: `projectTitle`,
     message: `Title of your project `
   },
 
   {
     type: `input`,
-    name: `Description`,
+    name: `description`,
     message: `Description of your project `
   },
 
   {
     type: `input`,
-    name: `Table of Contents`,
+    name: `tableofContents`,
     message: `Table of Contents for your project `
   },
 
   {
     type: `input`,
-    name: `Installation`,
+    name: `installation`,
     message: `Installation of your project `
   },
 
   {
     type: `input`,
-    name: `Usage`,
+    name: `usage`,
     message: `Usage of your project `
   },
 
   {
     type: `list`,
-    name: `License`,
+    name: `license`,
     message: `License of your project `,
     choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
   },
 
   {
     type: `input`,
-    name: `Contributing`,
+    name: `contributing`,
     message: `Contributing of your project `
   },
 
   {
     type: `input`,
-    name: `Tests`,
+    name: `tests`,
     message: `Tests of your project `
   },
 
   {
     type: `input`,
-    name: `Questions`,
+    name: `questions`,
     message: `Questions of your project `
   }
 
 ];
 
 
-inquirer
-  .prompt(
-    /* Pass your questions in here */
-    questions
-  )
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+// inquirer.prompt(questions)
+//   .then((answers) => {
+//     // Use user feedback for... whatever!!
+//   })
+//   .catch((error) => {
+//     if (error.isTtyError) {
+//       // Prompt couldn't be rendered in the current environment
+//     } else {
+//       // Something else went wrong
+//     }
+//   });
 
 
 
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile (fileName, data){
+  return fs.writeFile(fileName, data, err =>{
+    if (err) {console.log(err)}
+    
+  })
 }
 
 // function to initialize program
 function init() {
-
+  inquirer.prompt(
+    questions)
+    .then((answers) => {
+      writeToFile("readMeFile.md", generateMarkdown(answers))
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        console.log(error)
+      } 
+    });
 }
 
 // function call to initialize program

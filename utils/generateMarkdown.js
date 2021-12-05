@@ -1,35 +1,35 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+function generateMarkdown(answer) {
+  return `# ${answer.projectTitle}
   
 
-  ##Description
-  ${data.description},
+  ## Description
+  ${answer.description}
 
-  ##Table of Contents
-  Instillation:  ${data.instillation}
-  Usage: ${data.usage}
-  License: ${data.license}
+  ## Table of Contents ${answer.tableofContents}
+  Instillation:  ${answer.installation}
+  Usage: ${answer.usage}
+  License: ${answer.license}
   
 
-  ##Instillation
-   ${data.instillation},
+  ## Instillation
+  ${answer.installation}
 
-   ##Usage
-   ${data.usage}
-   
+  ## Usage
+  ${answer.usage}
 
-   ##License
-   ${data.license}
 
-   ##Contributing
-   ${data.contributing}
+  ## License
+  ${answer.license}
 
-   ##Tests
-   ${data.tests}
+  ## Contributing
+  ${answer.contributing}
 
-   ##Questions
-   ${data.Questions}
+  ## Tests
+  ${answer.tests}
+
+  ## Questions
+  ${answer.questions}
 
 `;
 }
