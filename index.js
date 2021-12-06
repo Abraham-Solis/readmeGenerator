@@ -2,7 +2,13 @@ const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 // var axios =require('axios');
 const fs = require("fs");
+const { default: axios } = require('axios');
 
+// axios.get(``)
+//   .then(res=>{
+//     console.log(res.data)
+//   })
+//   .catch(err=> console.log(err))
 
 
 // array of questions for user
@@ -71,7 +77,7 @@ function writeToFile (fileName, data){
 function init() {
   inquirer.prompt(
     questions)
-    .then((answers) => {
+    .then((answers) => { //axios link goes here nested
       writeToFile("readMeFile.md", generateMarkdown(answers))
     })
     .catch((error) => {
