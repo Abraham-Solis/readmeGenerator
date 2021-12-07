@@ -1,6 +1,4 @@
-// function to generate markdown for README
-function generateMarkdown(data) {
-return ` # ${data.projectTitle}
+ # sadasdasdas
 
   ## Table of Content
   - [Description](#description)
@@ -12,33 +10,29 @@ return ` # ${data.projectTitle}
   - [Questions](#questions)
 
   ## Description
-  ${data.description}
+  asdasdda
 
   ## Installation
   *Steps required to install project and how to get the development environment running:*
-  ${data.installation}
+  asdasddsdsadsa
 
   ## Usage
   *Instructions and examples for use:*
-  ${data.usage}
+  asdadsdsasasd
 
   ## Contributing
   *If you would like to contribute it, you can follow these guidelines for how to do so.*
-  ${data.contributing}
+  asdadsadsdasa
 
   ## Tests
   *Tests for application and how to run them:*
-  ${data.tests}
+  adsassaas
 
   ## License
-  ${data.license}
+  GNU AGPLv3
 
   ## Questions
   For any questions, please contact me with the information below:
-  GitHub: https://github.com/${data.username}
-  Email: ${data.email}
+  GitHub: https://github.com/adsdasdasdsa
+  Email: asddassa
 
-`;
-}
-
-module.exports = generateMarkdown;

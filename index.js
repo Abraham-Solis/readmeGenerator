@@ -1,17 +1,10 @@
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown');
-// var axios =require('axios');
+const util = require("util");
+const generateMarkdown = require('./utils/generateMarkdown.js');
+const axios =require('axios');
 const fs = require("fs");
-const { default: axios } = require('axios');
 
-// axios.get(``)
-//   .then(res=>{
-//     console.log(res.data)
-//   })
-//   .catch(err=> console.log(err))
-
-
-// array of questions for user
+//Array of Possible Inputs
 const questions = [
   {
     type: `input`,
@@ -36,15 +29,7 @@ const questions = [
     name: `usage`,
     message: `Usage of your project `
   },
-
-  {
-    type: `list`,
-    name: `license`,
-    message: `License of your project `,
-    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
-  },
-
-  {
+   {
     type: `input`,
     name: `contributing`,
     message: `Contributing of your project `
@@ -57,19 +42,36 @@ const questions = [
   },
 
   {
+    type: `list`,
+    name: `license`,
+    message: `License of your project `,
+    choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense']
+  },
+
+  {
     type: `input`,
-    name: `questions`,
-    message: `Questions of your project `
+    name: `username`,
+    message: `What is ur GitHub Username?`
+  },
+
+  {
+    type: `input`,
+    name: `email`,
+    message: `What is ur email?`
   }
 
 ];
 
 
 // function to write README file
-function writeToFile (fileName, data){
-  return fs.writeFile(fileName, data, err =>{
-    if (err) {console.log(err)}
-    
+function writeToFile(fileName, data) {
+  return fs.writeFile(fileName, data, err => {
+    if (err) {
+      return console.log(err)
+    }
+
+    console.log(`YOU HAVE BEEN SUCCESFUL!`)
+
   })
 }
 
@@ -77,14 +79,14 @@ function writeToFile (fileName, data){
 function init() {
   inquirer.prompt(
     questions)
-    .then((answers) => { //axios link goes here nested
-      writeToFile("readMeFile.md", generateMarkdown(answers))
+    .then((answer) => { 
+      writeToFile("readMeFile.md", generateMarkdown(answer))
     })
     .catch((error) => {
       if (error.isTtyError) {
         console.log(error)
-      } 
-    });
+      }
+    })
 }
 
 // function call to initialize program
