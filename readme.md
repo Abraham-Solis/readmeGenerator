@@ -4,6 +4,6 @@ This an open source project on GitHub, it is important to have a quality README 
 
 
 
-Live Link! https://github.com/Abraham-Solis/readmeGenerator 
+
 
 <img src="https://user-images.githubusercontent.com/92957388/144974214-4c1fdbae-756c-4c3e-8f96-d1219757e1c6.PNG">
